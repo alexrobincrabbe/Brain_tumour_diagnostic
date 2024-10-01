@@ -9,8 +9,10 @@ assignees: ''
 
 As a developer I can **capability** so that **received benefit**
 
+### Acceptance Criteria
+
 - Acceptance criteria 1
 
-- Acceptance criteria 2
+### Tasks
 
-- Acceptance criteria 3
+- [ ] Tasks 1
