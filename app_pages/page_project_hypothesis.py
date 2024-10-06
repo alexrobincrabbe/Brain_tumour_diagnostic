@@ -6,7 +6,7 @@ def page_project_hypothesis_body():
     st.write("### Project Hypothesis and Validation")
 
     st.success(
-        f"* - We believe comparing average images of each MRI scan classification, as well as average category"
+        f"- We believe comparing average images of each MRI scan classification, as well as average category"
         f" differences can provie  visual insights and  support radiologists’ diagnoses. "
         f"- Typically healthy scans are easy to distinguish visually from non healthy scans \n\n"
         f"- Other than healthy scans, the average of the images and variability, as well as "
