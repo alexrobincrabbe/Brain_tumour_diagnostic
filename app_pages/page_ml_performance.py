@@ -3,10 +3,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.image import imread
 from src.machine_learning.evaluate_clf import load_test_evaluation
+import os
 
 
 def page_ml_performance_metrics():
-    version = 'v1'
+    version = 'v4'
 
     st.write("### Train, Validation and Test Set: Labels Frequencies")
 
@@ -26,6 +27,24 @@ def page_ml_performance_metrics():
     st.write("---")
 
     st.write("### Generalised Performance on Test Set")
-    st.dataframe(pd.DataFrame(load_test_evaluation(version), index=['Loss', 'Categorical Accuracy']))
+    st.dataframe(pd.DataFrame(load_test_evaluation(version), index=['Loss', 'Categorical Accuracy', 'precision_glioma', 'recall_glioma', 'precision_healthy', 'recall_healthy', 'precision_meningioma', 'recall_meningioma', 'precision_pituitary', 'recall_pituitary']))
+
+    if st.checkbox("Check performance by label"):
+
+        my_data_dir = 'inputs/brain_tumour_dataset'
+        labels = os.listdir(my_data_dir+ '/validation')
+        label = st.selectbox(label="Select label",options=labels, index=0)
+        precision = plt.imread(f"outputs/{version}/model_training_prec_{label}.png")
+        recall = plt.imread(f"outputs/{version}/model_training_rec_{label}.png")
+        col3, col4 = st.beta_columns(2)
+        with col3:
+            st.image(precision, caption='Precision')
+        with col4:
+            st.image(recall, caption='Recall')
+
+
+
+
+
     
     
