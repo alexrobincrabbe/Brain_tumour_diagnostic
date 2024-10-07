@@ -1,115 +1,286 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-## Template Instructions
-
-Welcome,
-
-This is the Code Institute student template for the bring your own data project option in Predictive Analytics. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
-
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
-
-## How to use this repo
-
-1. Use this template to create your GitHub project repo
-
-1. Log into your cloud IDE with your GitHub account.
-
-1. On your Dashboard, click on the New Workspace button
-
-1. Paste in the URL you copied from GitHub earlier
-
-1. Click Create
-
-1. Wait for the workspace to open. This can take a few minutes.
-
-1. Open a new terminal and `pip3 install -r requirements.txt`
-
-1. Open the jupyter_notebooks directory, and click on the notebook you want to open.
-
-1. Click the kernel button and choose Python Environments.
-
-Note that the kernel says Python 3.8.18 as it inherits from the workspace, so it will be Python-3.8.18 as installed by our template. To confirm this, you can use `! python --version` in a notebook code cell.
-
-## Cloud IDE Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+
+# Brain Tumour Diagnostic Tool
+
+An image classifier machine learning project for classifying MRI scans of braintumours/healthy barins, utilizing convolutional neural networks (CNN).
+
+The link to the streamlit app can be found [here](https://brain-tumour-diagnostic-d316f77538fb.herokuapp.com/)
+
+# Table of Contents
+
+1. <a href="#project-dataset">Project Dataset</a>
+
+2. <a href="#business-requirements">Business Requirements</a>
+
+3. <details open>
+    <summary><a href="#hypothesis-and-how-to-validate">Hypothesis and How to Validate</a></summary>
+
+    - [Hypothesis](#hypothesis)
+
+    - [Validation](#validation)
+
+</details>
+
+4. <details open>
+    <summary><a href="the-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks">The rationale to map the business requirements to the Data Visualizations and ML tasks</a></summary>
 
 
-## Dataset Content
-* Describe your dataset. Choose a dataset of reasonable size to avoid exceeding the repository's maximum size and to have a shorter model training time. If you are doing an image recognition project, we suggest you consider using an image shape that is 100px × 100px or 50px × 50px, to ensure the model meets the performance requirement but is smaller than 100Mb for a smoother push to GitHub. A reasonably sized image set is ~5000 images, but you can choose ~10000 lines for numeric or textual data. 
+    -  [User Stories](#user-stories)
+        <ul>
 
+        - [Data collection and Preparation](#data-collection-and-preparation)
+
+        - [Data visualisation](#data-visualisation)
+
+        - [Modelling and Evaluation](#modelling-and-evaluation)
+
+        - [Dashboard Development and Deployment](#dashboard-development-and-deployment)
+        </ul>
+    </details>
+
+5. <a heref="ml-business-case">ML Business Case</a>
+
+
+6. <a href="#modelling">modelling</a>
+
+
+7. <a href="#libraries">Libraries</a>
+
+8. <details open>
+    <summary><a href="#deployment">Deployment</a></summary>
+
+    - [local deployment](#local-deployment)
+    - [deployment to heroku](#deploy-to-heroku)
+
+9. <a href="credits">credits</a>
+
+## Project Dataset
+
+The dataset consists of 7023 MRI scans. The scans are split into four classes: glioma, healthy, meningioma, pituitary. 
+
+The data can be found at https://www.kaggle.com/datasets/rm1000/brain-tumor-mri-scans
 
 ## Business Requirements
-* Describe your business requirements
 
+The demand for MRI-based diagnostics is increasing, with over a million MRI brain scans conducted annually in hospitals and clinics worldwide. Radiologists often face the challenge of reviewing large volumes of images under pressure, which can lead to delays and diagnostic inconsistencies. Early and accurate diagnosis is critical for treatment planning and improving patient outcomes, particularly for conditions like glioma and meningioma that require timely intervention. There is a need for an automated solution to assist radiologists in identifying and classifying brain abnormalities swiftly and accurately.
 
-## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them) 
+The institution requires an automated solution to:
+
+- 1 Provide visual insights into the nature of different categories through image analysis
+- 2 Reduce diagnostic time by quickly categorizing brain scans into four key categories: glioma, meningioma, pituitary tumor, and healthy cases.
+
+## Hypothesis and How to Validate
+
+### Hypothesis 
+
+- Comparing average images of each MRI scan classification, as well as average category differences can provide visual insights and  support radiologists’ diagnoses.
+
+- A machine learning-based classification system, utilizing convolutional neural networks (CNNs), can accurately categorize MRI brain scans into four distinct categories: glioma, meningioma, pituitary tumors, and healthy cases.
 
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
-* List your business requirements and a rationale to map them to the Data Visualizations and ML tasks
 
+### User Stories
+
+#### Data collection and Preparation
+
+- Data collection
+    * Download Dataset from Kaggle
+    * Unzip data
+
+- Data cleaning
+    * Remove non images from the dataset
+
+- Split datasets
+    * Split the dataset into train, validate and test sets
+
+#### Data visualisation
+
+- Calculate average image sizes
+    * Display plot of image size distribution
+    * Calculate average image size
+    * Save image size embeddings
+
+- Show average and variability of images (addresses business requirement 1)
+    * Show plots of average images for each label
+    * Show plots of average variability for each label
+    * Save images
+
+- Show average differences between images of different labels
+    * Calculate and plot the average difference between images for each label with respect to every other label
+    * Save images
+
+#### Modelling and Evaluation
+
+- Create model
+    * Load dataset
+    * Augment the data
+    * Create model
+    * Train model
+    * Evaluate on test set
+    * Save model and history plots
+
+- Fine tune model (addresses business requirement 2)
+    * Tune paremeters to maximise the model performance
+    * Train model
+    * Evaluate on test set
+
+#### Dashboard Development and Deployment
+
+- Set up Streamlit app
+    * Create streamlit app.py
+    * Create Multipage class
+
+- Create project summary page
+    * Create function to generate content for the summary page
+    * Import and add the page to the streamlit app
+
+- Create Machine Learning performance page
+    * Create function to generate content for the ML performance page
+    * Import and add the page to the streamlit app
+    * Show loss and accuracy curves for training and validation sets
+    * Show metrics on test set
+    * Show precision and recall curves for training and validation sets, for each label
+
+- Create brain tumour diagnostics page (addresses business requirement 2)
+    * Create function to generate content for the brain tumour diagnostic page
+    * Import and add the page to the streamlit app
+    * create functions to load images and make predictions using the model
+    * Plot the probailities of each label
+
+- Create project hypothesis page
+    * Create function to generate content for the project hypothesis page
+    * Import and add the page to the streamlit app
+
+- Create MRI scan visualiser page  (addresses business requirement 1)
+    * Create function to generate content for the MRI scan visualiser page
+    * Import and add the page to the streamlit app
+    * Create function to load and display montage of images
+    * Create functions to load and display average image and variablity for each label
+    * Create function to load and display difference between average image for each pair of labels
 
 ## ML Business Case
-* In the previous bullet, you potentially visualized an ML task to answer a business requirement. You should frame the business case using the method we covered in the course 
 
+- We aim to develop a machine learning model to predict whether a brain MRI scan falls into one of four categories: glioma, meningioma, pituitary tumor, or healthy. The model is a supervised, multi-class, single-label classification model based on historical MRI scan image data.
+- Our ideal outcome is to provide radiologists with a faster and more reliable diagnostic tool to classify MRI brain scans, assisting them in identifying brain abnormalities or confirming healthy cases more accurately and efficiently.
+- The model success metrics are:
+    * Recall and precision of at least 0.7 accross all labels
+
+- The model output is defined as a label for the MRI scan, indicating the predicted category (glioma, meningioma, pituitary tumor, or healthy) along with the associated probability score for each category. The medical team will upload MRI scans to the App, and predictions will be made on the fly, not in batches. These predictions can be used by radiologists as a support tool during their diagnostic process.
+Heuristics:
+- The current diagnostic process for detecting brain abnormalities in MRI scans requires experienced radiologists to carefully analyze images, often involving manual inspection. The process is time-consuming and subject to human variability, which can lead to errors or inconsistencies in diagnosis. This is especially problematic in under-resourced hospitals or diagnostic centers that are experiencing high demand and understaffing.
+By introducing an AI-powered diagnostic tool, radiologists will be able to make faster, more consistent decisions, improving the quality of patient care. Furthermore, the tool will assist in areas where there is a shortage of radiologists, helping to alleviate diagnostic bottlenecks.
 
 ## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
-* Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
 
+### Page 1: Project Summary
 
+- General info: background and context for the study
 
-## Unfixed Bugs
-* You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+- Project dataset: link and basic info about the dataset
+ 
+- Business requirements
+
+### Page 2: Data Visualisation
+
+Addresses business requirement 1
+
+- Show a montage of images from each category in the dataset
+
+- Show average image and variation for each label
+
+- Show different between average image between each pair of labels
+
+### Page 3: Brain Tumour Diagnostic
+
+Addresses business requirement 2
+
+- Allows images of MRI scans to be uploaded, and predicts which category (most likely) the image belongs to
+
+- Shows probabilities for all categories
+
+### Page 4: Hypothesis and Validation
+
+- 
+
+### Page 5: ML Metrics
+
+- Shows balance of dataset labels
+
+- Shows training loss and accuracy history
+
+- Shows performance metrics on test set
+
+- Shows training precision and recall training history by label
+
+## Modelling
+
+- The model contains 3 2d-convolution layers
+
+- The 3 max pooling layers are needed to reduce the size of the image
+
+- The flatten layer converts the pixel values to a 1-D array
+
+- At least one dense layer is required for the parameter fitting
+
+- The output activation function is softmax, as there are 4 categorical lables to be predicted
+
+- The loss function is categorical cross entropy
+
+### Model Tuning
+
+- Batch size was increased from 20 to 40 to increase performance. As the set contains 4 labels, rather than a binary classifiction, it was supposed that a larger batch size would be necessary to fit each iteration of the model. Increasing above 40 didn't show any benefit.
+
+- The total number of epochs were increased from 15 to 50, as the model appeared to still be improving up to 30 epochs and beyond
+
+- The early stopping toleranz was increased from 3 to 6, as the validation loss showed large variability between epochs, and this caused training to sometimes be stoppped earlier than is should
+
+- As meningioma showed the worst performance of all of the labels, a higher weight was given to this label to improve performance. However improving performance with the meningioma category appears to come at a cost of the performance in the glioma category. Increasing weights in both glioma and meningioma were also tried.
+
+- Note: only the final model is stored in the github repository, in order to keep the repository size within the limits for deployment on Heroku
 
 ## Deployment
-### Heroku
 
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
-* Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
+### Local Deployment
 
-1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+1. Clone the repository
+2. Install dependencies:
+    ``` 
+    pip3 install -r "requirements.txt"
+    ```
+3. You will need an account with [kaggle](https://www.kaggle.com/) to download an API token. The kaggle.json file should be place in the route directory
+4. To run the app:
+    ``` 
+    streamlit run app.py
+    ```
 
+### Deploy to Heroku
 
-## Main Data Analysis and Machine Learning Libraries
-* Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
+1. You will need an account at Heroku and be logged into your account
+2. Click 'New' then 'Create new app'
+3. Choose region
+4. Click 'create app'
+5. In the deploy tab under deployment method, choose GitHub
+6. Under connect to Github, choose the repository to connect
+7. Under Manual deploy, click 'Deploy Branch'
 
+## Libraries
 
-## Credits 
+- Tensorflow
+    * Image augmentation
+    * Machine learning model and training
 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-* You can break the credits section up into Content and Media, depending on what you have included in your project. 
+- Keras_tuner
+    * Hyperparameter optimization
 
-### Content 
+- Pandas
+    * Dataframes
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+- Matplotlib/Seaborn
+    * Plotting data
 
-### Media
+- Streamlit
+    * Front end Deployment
 
-- The photos used on the home and sign-up page are from This Open-Source site
-- The images used for the gallery page were taken from this other open-source site
-
-
-
-## Acknowledgements (optional)
-* Thank the people that provided support through this project.
 
