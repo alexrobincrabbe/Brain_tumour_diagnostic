@@ -42,7 +42,7 @@ The link to the streamlit app can be found [here](https://brain-tumour-diagnosti
 5. <a heref="ml-business-case">ML Business Case</a>
 
 
-6. <a href="#modelling">modelling</a>
+6. <a href="#modelling">Modelling</a>
 
 
 7. <a href="#libraries">Libraries</a>
@@ -72,12 +72,9 @@ The institution requires an automated solution to:
 
 ## Hypothesis and How to Validate
 
-### Hypothesis 
+- Hypothesis: A machine learning model, using convolutional neural networks (CNNs), can accurately classify MRI brain scans into four categories—glioma, meningioma, pituitary tumor, and healthy and assit radialogists by providing quick reliable predictions.
 
-- Comparing average images of each MRI scan classification, as well as average category differences can provide visual insights and  support radiologists’ diagnoses.
-
-- A machine learning-based classification system, utilizing convolutional neural networks (CNNs), can accurately categorize MRI brain scans into four distinct categories: glioma, meningioma, pituitary tumors, and healthy cases.
-
+- How to validate: Measure key metrics such as accuracy, precision, recall for each of the four categories.
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
 
@@ -284,3 +281,6 @@ Addresses business requirement 2
     * Front end Deployment
 
 
+## Credits
+
+Project was adapted from this [Code Institute walkthrough project](https://github.com/Code-Institute-Solutions/WalkthroughProject01). The model hyper-parameters used were used as the starting point, and the notebook structure is based around the project.
