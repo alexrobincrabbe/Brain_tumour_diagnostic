@@ -7,7 +7,7 @@ import os
 
 
 def page_ml_performance_metrics():
-    version = 'v6'
+    version = 'v9'
 
     st.write("### Train, Validation and Test Set: Labels Frequencies")
 
