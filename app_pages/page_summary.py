@@ -14,7 +14,7 @@ def page_summary_body():
         f" which can lead to delays and diagnostic inconsistencies. Early and accurate diagnosis"
         f" is critical for treatment planning and improving patient outcomes, particularly for"
         f" conditions like glioma and meningioma that require timely intervention. There is a need"
-        f"for an automated solution to assist radiologists in identifying and classifying brain"
+        f" for an automated solution to assist radiologists in identifying and classifying brain"
         f" abnormalities swiftly and accurately. \n \n"
         f"**Project Dataset**\n"
         f"* The available dataset contains 7023 MRI scans of brains split into four classes ")
