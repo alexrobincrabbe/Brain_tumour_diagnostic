@@ -8,5 +8,6 @@ node_modules/
 .github/
 cloudinary_python.txt
 kaggle.json
-inputs
+inputs/brain_tumour_dataset/test
+inputs/brain_tumour_dataset/train
 10.ipynb
