@@ -21,11 +21,12 @@ def page_summary_body():
 
     st.success(
         f"** The project has 2 business requirements:**\n"
-        f"* 1 - The client would like a machine learning solution  "
+        f"* 1 - The client would like a visual study to better understand the data. \n"
+        f"* 2 - The client would like a machine learning solution  "
         f" to determine if an MRI scan belongs to the following classes: glioma, healthy, meningioma, pituitary.\n"
-        f"* 2 - The client would like a visual study to better understand the data. "
+       
         )
 
     st.write(
         f"* For additional information, please visit and **read** the "
-        f"[Project README file](https://github.com/Code-Institute-Solutions/WalkthroughProject01/blob/main/README.md).")
+        f"[Project README file](https://github.com/alexrobincrabbe/Brain_tumour_diagnostic/blob/main/README.md).")

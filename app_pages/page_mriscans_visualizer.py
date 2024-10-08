@@ -10,8 +10,9 @@ import itertools
 import random
 
 def page_mriscans_visualizer_body():
-    st.write("### Cells Visualizer")
+    st.write("### MRI Scans Visualizer")
     st.info(
+        f"* Addresses business requirement 1 \n"
         f"* The client would like a study to visually differentiate "
         f"scans by category.")
     

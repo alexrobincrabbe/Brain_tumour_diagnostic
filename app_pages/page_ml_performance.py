@@ -11,12 +11,18 @@ def page_ml_performance_metrics():
 
     st.write("### Train, Validation and Test Set: Labels Frequencies")
 
+    st.info("The labels are fairly balanced. The train set contains over 1000 examples for each label.")
+
+
     labels_distribution = plt.imread(f"outputs/{version}/labels_distribution.png")
     st.image(labels_distribution, caption='Labels Distribution on Train, Validation and Test Sets')
     st.write("---")
 
 
     st.write("### Model History")
+
+    st.info("The training history for the metrics loss and accuracy are shown below")
+
     col1, col2 = st.beta_columns(2)
     with col1: 
         model_acc = plt.imread(f"outputs/{version}/model_training_acc.png")
@@ -27,7 +33,12 @@ def page_ml_performance_metrics():
     st.write("---")
 
     st.write("### Generalised Performance on Test Set")
+    st.info("The model achieved a precision and recall of 0.7 or above on all labels")
     st.dataframe(pd.DataFrame(load_test_evaluation(version), index=['Loss', 'Categorical Accuracy', 'precision_glioma', 'recall_glioma', 'precision_healthy', 'recall_healthy', 'precision_meningioma', 'recall_meningioma', 'precision_pituitary', 'recall_pituitary']))
+
+    st.info(
+        "You can also see the training history for the metrics: precision and recall. \n \n"
+        "Select a label to see the training history metrics for that  label.")
 
     if st.checkbox("Check performance by label"):
 

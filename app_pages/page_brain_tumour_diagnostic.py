@@ -11,8 +11,11 @@ from src.machine_learning.predictive_analysis import (
                                                     )
 
 def page_brain_tumour_diagnostic_body():
+    st.write("### Brain Tumour Diagnostic Tool")
+
     st.info(
-        f"* The client is interested in dianosing brain tumours "
+        f"* Addreses business requirement 2 \n"
+        f"* The client would like an automated system to classify MRI scans "
         )
 
     st.write(
@@ -21,6 +24,10 @@ def page_brain_tumour_diagnostic_body():
         )
 
     st.write("---")
+
+    st.success(
+        f"* Upload images to generate a diagnostic prediction. "
+    )   
 
     images_buffer = st.file_uploader('Upload scans. You may select more than one.',
                                         type='jpg',accept_multiple_files=True)

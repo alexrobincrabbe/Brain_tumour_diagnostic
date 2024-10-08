@@ -16,4 +16,6 @@ def page_project_hypothesis_body():
     st.success(    
         f" - We believe a machine learning-based classification system, utilizing convolutional neural"
         f" networks (CNNs), can accurately categorize MRI brain scans into four distinct categories: \n"
-        f" glioma, meningioma, pituitary tumors, and healthy cases.")
+        f" glioma, meningioma, pituitary tumors, and healthy cases. \n"
+        f" - The condition for success was reaching a precision and recall of at least 0.7 across"
+        f" all four labels on the test set, which has been achieved (see ML performance page).")
